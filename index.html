@@ -11,7 +11,7 @@
 
     <header class="header">
         <nav class="container">
-            <a href="#" class="logo">Rys Portofolio</a>
+            <img class="logo"src="images/Logo.png" alt="Logo" />
             <div class="nav-links">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
@@ -19,6 +19,16 @@
                 <a href="#contact" class="nav-link">Contact</a>
                 <div class="nav-indicator"></div>
             </div>
+            <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </label>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -65,12 +75,14 @@
                         <div class="skills">
                             <h3>My Skills</h3>
                             <div class="skill-tags">
-                                <span class="skill-tag">HTML5</span>
-                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
                                 <span class="skill-tag">JavaScript</span>
                                 <span class="skill-tag">React</span>
                                 <span class="skill-tag">Node.js</span>
                                 <span class="skill-tag">UI/UX Design</span>
+                                <span class="skill-tag">SpringBoot</span>
+                                <span class="skill-tag">Java</span>
                             </div>
                         </div>
                     </div>
@@ -94,14 +106,14 @@
                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 1" />
                         </div>
                         <div class="project-info">
-                            <h3>E-commerce Platform</h3>
-                            <p>A modern e-commerce solution with seamless checkout and inventory management.</p>
+                            <h3>FullStack Website Developer </h3>
+                            <p>Simple Website CRUD Using Laravel</p>
                             <div class="project-tech">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
+                                <span>Laravel</span>
+                                <span>Boostrap</span>
+                                <span>MySQL</span>
                             </div>
-                            <a href="#" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://github.com/RysNan/Laravel" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="project-card">
@@ -109,29 +121,12 @@
                             <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Project 2" />
                         </div>
                         <div class="project-info">
-                            <h3>Health Tracker App</h3>
-                            <p>Mobile application for tracking fitness goals and nutrition intake.</p>
+                            <h3>Pemrograman Mobile</h3>
+                            <p>Collage Assignment: Creating a Mobile Application Using Kotlin</p>
                             <div class="project-tech">
-                                <span>React Native</span>
-                                <span>Firebase</span>
-                                <span>Redux</span>
+                                <span>Kotlin</span>
                             </div>
-                            <a href="#" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 3" />
-                        </div>
-                        <div class="project-info">
-                            <h3>Portfolio Template</h3>
-                            <p>Minimalist portfolio template for creatives and developers.</p>
-                            <div class="project-tech">
-                                <span>HTML/CSS</span>
-                                <span>JavaScript</span>
-                                <span>GSAP</span>
-                            </div>
-                            <a href="#" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://github.com/RysNan/Pemrograman-Mobile" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -166,13 +161,6 @@
                             <a href="https://github.com/RysNan" aria-label="Github"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="4" required></textarea>
-                            <label for="message">Your Message</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
                 </div>
             </div>
         </section>

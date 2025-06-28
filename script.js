@@ -1,4 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    const toggleSwitch = document.querySelector('#checkbox');
+    const currentTheme = localStorage.getItem('theme');
+
+    function setDarkMode(isDark) {
+        if (isDark) {
+            document.body.classList.add('dark-mode');
+            if (toggleSwitch) toggleSwitch.checked = true;
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark-mode');
+            if (toggleSwitch) toggleSwitch.checked = false;
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    if (currentTheme) {
+        if (currentTheme === 'dark') {
+            setDarkMode(true);
+        }
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode(true);
+    }
+
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('change', function(e) {
+            setDarkMode(e.target.checked);
+        });
+    }
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -18,9 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-link');
-    let currentActive = document.querySelector('.nav-link.active');
-    
-    setActiveNavItem();
     
     window.addEventListener('scroll', function() {
         setActiveNavItem();
@@ -55,17 +81,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function moveNavIndicator(activeItem) {
         const indicator = document.querySelector('.nav-indicator');
+        if (!indicator) return;
         const itemRect = activeItem.getBoundingClientRect();
         const navRect = document.querySelector('.nav-links').getBoundingClientRect();
         
         indicator.style.width = `${itemRect.width}px`;
         indicator.style.left = `${itemRect.left - navRect.left}px`;
     }
-    
-    const activeNavItem = document.querySelector('.nav-link.active');
-    if (activeNavItem) {
-        moveNavIndicator(activeNavItem);
-    }
+
+    setTimeout(() => {
+        const activeNavItem = document.querySelector('.nav-link.active');
+        if (activeNavItem) {
+            moveNavIndicator(activeNavItem);
+        }
+    }, 100);
+
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -85,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const cursor = document.querySelector('.cursor');
     
-    if (window.innerWidth > 768) {
+    if (cursor && window.innerWidth > 768) {
         document.addEventListener('mousemove', function(e) {
             cursor.style.left = `${e.clientX}px`;
             cursor.style.top = `${e.clientY}px`;
@@ -104,31 +134,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 cursor.style.opacity = '1';
             });
         });
-    } else {
+    } else if (cursor) {
         cursor.style.display = 'none';
     }
     
    const contactForm = document.querySelector('.contact-form');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const message = this.querySelector('#message').value.trim(); 
-        
-        if (!message) {
-            alert('Please enter your message');
-            return;
-        }
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const message = this.querySelector('#message').value.trim(); 
+            
+            if (!message) {
+                alert('Please enter your message');
+                return;
+            }
 
-        const subject = `New message from Portfolio Visitor`;
-        const body = `Message:\n\n${message}`;
-        window.location.href = `mailto:Rys.Nando@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        this.reset();
-        alert('Please continue sending your message via email. Thank you!');
-    });
-}
+            const subject = `New message from Portfolio Visitor`;
+            const body = `Message:\n\n${message}`;
+            window.location.href = `mailto:Rys.Nando@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            this.reset();
+            alert('Please continue sending your message via email. Thank you!');
+        });
+    }
 
     
     const animateOnScroll = function() {
@@ -160,4 +190,6 @@ if (contactForm) {
             }, 200);
         }, 200);
     }, 500);
+
+    setActiveNavItem(); 
 });
